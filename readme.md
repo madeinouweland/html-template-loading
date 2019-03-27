@@ -1,6 +1,8 @@
-# Load html templates in div's that have their template attributes set
+## Load html templates in div's that have their template attributes set
 
-<img src="https://github.com/madeinouweland/html-template-loading/blob/master/template.png" width="400" />
+```
+<div template=header></div>
+```
 
 ```
 [... body.childNodes]
@@ -12,3 +14,5 @@
       .then(html => x.innerHTML = html)
   });
 ```
+
+<img src="https://github.com/madeinouweland/html-template-loading/blob/master/template.png" width="400" />
