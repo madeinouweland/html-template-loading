@@ -1,0 +1,26 @@
+<style media="screen">
+  div {
+    border: 1px solid #999;
+    padding: 20px;
+  }
+</style>
+
+<script>
+  function load() {
+    [... body.childNodes]
+      .filter(x => x.attributes !== undefined)
+      .filter(x => x.attributes.getNamedItem('template') !== null)
+      .map(x => {
+        fetch(`${x.attributes.getNamedItem('template').value}.html`)
+          .then(data => data.text())
+          .then(html => x.innerHTML = html)
+      });
+  }
+</script>
+
+<body id=body onload=load()>
+  <div template=header></div>
+  <div style="float:left;" template=pane></div>
+  <div style="float:left;" template=pane></div>
+  <div style="clear:both;" template=footer></div>
+</body>
